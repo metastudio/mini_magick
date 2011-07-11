@@ -380,6 +380,7 @@ module MiniMagick
     def run(command_builder)
       command = command_builder.command
 
+      puts "Running #{command}" if ENV['MINI_MAGICK_VERBOSE']
       sub = Subexec.run(command, :timeout => MiniMagick.timeout)
 
       if sub.exitstatus != 0
